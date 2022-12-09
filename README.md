@@ -33,6 +33,7 @@ pip install -r requirements.txt
 
 # Примеры
 ![Скан](https://github.com/korecbtc/im2txtbot/blob/master/rus_pic.jpg)
+![Результат](https://github.com/korecbtc/im2txtbot/blob/master/telegram_bot_response.png)
 # Технологии
 Библиотеки:
 
