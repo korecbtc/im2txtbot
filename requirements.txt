@@ -2,6 +2,7 @@ APScheduler==3.6.3
 cachetools==4.2.2
 certifi==2022.9.24
 flake8==6.0.0
+isort==5.10.1
 mccabe==0.7.0
 packaging==21.3
 Pillow==9.3.0

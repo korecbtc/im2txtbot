@@ -1,8 +1,9 @@
-from PIL import Image
-import pytesseract
 import os
+
+import pytesseract
 from dotenv import load_dotenv
-from telegram.ext import Updater, Filters, MessageHandler
+from PIL import Image
+from telegram.ext import Filters, MessageHandler, Updater
 
 load_dotenv()
 TOKEN = os.getenv('BOT_TOKEN')
