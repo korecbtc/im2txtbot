@@ -2,7 +2,6 @@ from PIL import Image
 import pytesseract
 import os
 from dotenv import load_dotenv
-import telegram
 from telegram.ext import Updater, Filters, MessageHandler
 
 load_dotenv()
@@ -13,6 +12,8 @@ updater = Updater(token=TOKEN)
 def img2txt(filename):
     '''Возвращает текст с картинки'''
     text = pytesseract.image_to_string(Image.open(filename), lang='rus+eng')
+    if not text.strip():
+        text = 'Не удалось распознать текст на картинке.'
     return text
 
 
@@ -34,11 +35,16 @@ def give_me_a_photo_please(update, context):
     )
 
 
-photo_handler = MessageHandler(Filters.photo, get_photo)
-video_handler = MessageHandler(Filters.video, give_me_a_photo_please)
-text_handler = MessageHandler(Filters.text, give_me_a_photo_please)
-updater.dispatcher.add_handler(photo_handler)
-updater.dispatcher.add_handler(video_handler)
-updater.dispatcher.add_handler(text_handler)
-updater.start_polling()
-updater.idle()
+def main():
+    photo_handler = MessageHandler(Filters.photo, get_photo)
+    video_handler = MessageHandler(Filters.video, give_me_a_photo_please)
+    text_handler = MessageHandler(Filters.text, give_me_a_photo_please)
+    updater.dispatcher.add_handler(photo_handler)
+    updater.dispatcher.add_handler(video_handler)
+    updater.dispatcher.add_handler(text_handler)
+    updater.start_polling()
+    updater.idle()
+
+
+if __name__ == '__main__':
+    main()
