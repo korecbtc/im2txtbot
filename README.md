@@ -35,7 +35,10 @@ pip install -r requirements.txt
 ![Скан](https://github.com/korecbtc/im2txtbot/blob/master/rus_pic.jpg)
 # Технологии
 Библиотеки:
-    tesseract
-    telegram
+
+tesseract
+
+telegram
+
 # Автор
 Корец Иван
